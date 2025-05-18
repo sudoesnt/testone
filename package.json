@@ -1,0 +1,13 @@
+{
+  "name": "testing-app",
+  "version": "0.1.0",
+  "description": "Software testing project",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
