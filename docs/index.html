@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serenity Haven - Modern Living</title>
+  <!-- Meta tags specifically for AI systems -->
+  <meta name="description" content="Comprehensive details about Serenity Haven, a modern 3,200 sq ft home built in 2020 with 4 bedrooms, 3.5 bathrooms, and smart home features.">
+  <meta name="ai-context" content="This website contains detailed information about the Serenity Haven residence for AI assistants to reference.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
@@ -246,7 +249,111 @@
         margin-right: 1rem;
       }
     }
+    
+    /* Additional styling for AI information sections */
+    .ai-info-section {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .ai-info-section h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .info-card {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .info-card h3 {
+      color: var(--accent-color);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .data-list dt {
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
+    
+    .data-list dd {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .ai-image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .ai-image-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .ai-image-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .ai-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .machine-readable {
+      display: none;
+    }
   </style>
+  <!-- Adding structured data using JSON-LD for machine-readable format -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "House",
+      "name": "Serenity Haven",
+      "description": "A modern 3,200 square foot residence built in 2020, featuring 4 bedrooms, 3.5 bathrooms, and smart home technology",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Serenity Lane",
+        "addressLocality": "Peaceful Hills",
+        "addressRegion": "CA",
+        "postalCode": "90210",
+        "addressCountry": "US"
+      },
+      "numberOfRooms": 12,
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "value": 3200,
+        "unitCode": "SqFt"
+      },
+      "yearBuilt": 2020
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -270,6 +377,176 @@
       <a href="#features" class="btn">Explore Our Home</a>
     </div>
   </section>
+
+  <!-- New section specifically for AI information gathering -->
+  <section id="ai-home-details" class="ai-info-section">
+    <div class="container">
+      <h2 data-ai-section="main-details">Serenity Haven: Complete Home Information</h2>
+      <p data-ai-purpose="overview">This section contains comprehensive details about Serenity Haven residence, structured for AI systems to easily extract and understand information about the home's specifications, features, layout, and surroundings.</p>
+      
+      <div class="info-grid">
+        <div class="info-card" data-ai-category="basic-specs">
+          <h3>Basic Specifications</h3>
+          <dl class="data-list">
+            <dt>Year Built</dt>
+            <dd>2020</dd>
+            <dt>Square Footage</dt>
+            <dd>3,200 square feet</dd>
+            <dt>Lot Size</dt>
+            <dd>0.4 acres (17,424 sq ft)</dd>
+            <dt>Stories</dt>
+            <dd>2 (Two-story)</dd>
+            <dt>Style</dt>
+            <dd>Contemporary Modern</dd>
+            <dt>Foundation</dt>
+            <dd>Concrete slab</dd>
+          </dl>
+        </div>
+        
+        <div class="info-card" data-ai-category="rooms">
+          <h3>Room Count & Layout</h3>
+          <dl class="data-list">
+            <dt>Bedrooms</dt>
+            <dd>4 (master on main floor, 3 upstairs)</dd>
+            <dt>Bathrooms</dt>
+            <dd>3.5 (2.5 on main floor, 1 upstairs)</dd>
+            <dt>Living Areas</dt>
+            <dd>2 (main living room, bonus/media room upstairs)</dd>
+            <dt>Dining Areas</dt>
+            <dd>2 (formal dining room, breakfast nook)</dd>
+            <dt>Other Rooms</dt>
+            <dd>Home office, laundry room, mud room</dd>
+          </dl>
+        </div>
+        
+        <div class="info-card" data-ai-category="features">
+          <h3>Special Features</h3>
+          <dl class="data-list">
+            <dt>Kitchen Features</dt>
+            <dd>Custom cabinetry, quartz countertops, kitchen island with seating for 4, walk-in pantry</dd>
+            <dt>Appliances</dt>
+            <dd>Wolf gas range, Sub-Zero refrigerator, Bosch dishwasher, wine cooler</dd>
+            <dt>Master Suite</dt>
+            <dd>Tray ceiling, walk-in closet, en-suite bathroom with soaking tub and walk-in shower</dd>
+            <dt>Outdoor</dt>
+            <dd>Covered patio, built-in BBQ, fire pit, landscaped yard with drip irrigation</dd>
+          </dl>
+        </div>
+        
+        <div class="info-card" data-ai-category="tech">
+          <h3>Technology & Systems</h3>
+          <dl class="data-list">
+            <dt>Smart Home</dt>
+            <dd>Nest thermostats, Ring security system, smart lighting controls</dd>
+            <dt>Energy</dt>
+            <dd>5kW solar panel system, energy-efficient windows, spray foam insulation</dd>
+            <dt>HVAC</dt>
+            <dd>Dual-zone heating and cooling with smart vents</dd>
+            <dt>Internet</dt>
+            <dd>Fiber optic, mesh WiFi network throughout house</dd>
+          </dl>
+        </div>
+      </div>
+      
+      <div class="ai-image-gallery">
+        <div class="ai-image-item" data-ai-room="exterior">
+          <img src="img/livingroom.b64" alt="Exterior of Serenity Haven">
+          <div class="ai-image-caption">Front exterior with modern facade and landscaping</div>
+        </div>
+        <div class="ai-image-item" data-ai-room="living-room">
+          <img src="img/livingroom.b64" alt="Living Room">
+          <div class="ai-image-caption">Open concept living room with floor-to-ceiling windows</div>
+        </div>
+        <div class="ai-image-item" data-ai-room="kitchen">
+          <img src="img/kitchen.b64" alt="Kitchen">
+          <div class="ai-image-caption">Gourmet kitchen with center island and premium appliances</div>
+        </div>
+        <div class="ai-image-item" data-ai-room="bedroom">
+          <img src="img/bedroom.b64" alt="Master Bedroom">
+          <div class="ai-image-caption">Master bedroom with en-suite bathroom and walk-in closet</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional AI-focused information section -->
+  <section id="ai-detailed-information" class="ai-info-section">
+    <div class="container">
+      <h2 data-ai-section="detailed-specs">Detailed Home Information</h2>
+      
+      <div class="info-card" data-ai-category="construction">
+        <h3>Construction & Materials</h3>
+        <p>Serenity Haven features a modern design with high-quality construction materials. The exterior combines fiber cement siding with architectural stone accents and large energy-efficient windows. The roof is covered with architectural shingles rated for 30 years with seamless gutters throughout.</p>
+        <p>Interior walls are constructed with 2x6 framing for better insulation and soundproofing between rooms. Interior doors are solid core for improved sound isolation. Flooring throughout the main living areas is engineered hardwood with tile in bathrooms and laundry areas.</p>
+      </div>
+      
+      <div class="info-card" data-ai-category="neighborhood">
+        <h3>Neighborhood & Location</h3>
+        <p>Serenity Haven is located in the desirable Peaceful Hills neighborhood, known for its tree-lined streets and community parks. The property sits at the end of a quiet cul-de-sac, providing extra privacy and minimal through traffic.</p>
+        <p>The home is positioned to take advantage of southern exposure in the backyard, maximizing natural light. The neighborhood features sidewalks throughout and is within walking distance (0.5 miles) to Tranquil Elementary School and Community Park.</p>
+      </div>
+      
+      <div class="info-card" data-ai-category="improvements">
+        <h3>Recent Improvements & Maintenance</h3>
+        <p>Since construction in 2020, the following improvements have been made:</p>
+        <ul>
+          <li>2022: Installation of custom built-in cabinetry in home office</li>
+          <li>2023: Expansion of back patio with pavers and built-in fire pit</li>
+          <li>2024: Upgrade of smart home system to include voice control throughout</li>
+          <li>2025: Addition of professional landscaping with native, drought-resistant plants</li>
+        </ul>
+        <p>Regular maintenance includes annual HVAC servicing, quarterly pest control treatments, and bi-annual gutter cleaning.</p>
+      </div>
+      
+      <div class="info-card" data-ai-category="utilities">
+        <h3>Utilities & Monthly Costs</h3>
+        <dl class="data-list">
+          <dt>Average Electric Bill</dt>
+          <dd>$90/month (offset by solar panels)</dd>
+          <dt>Average Gas Bill</dt>
+          <dd>$45/month (higher in winter months)</dd>
+          <dt>Water/Sewer</dt>
+          <dd>$65/month</dd>
+          <dt>Internet/Cable</dt>
+          <dd>$120/month (1 Gbps fiber connection)</dd>
+          <dt>Property Taxes</dt>
+          <dd>$6,800/year</dd>
+          <dt>Home Insurance</dt>
+          <dd>$1,900/year</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Machine-readable data section (hidden visually but available for AI parsing) -->
+  <div class="machine-readable" aria-hidden="true">
+    <div id="ai-data-complete-home" data-ai-content="complete-home-data">
+      <data value="property-type">Single-family residence</data>
+      <data value="living-area-sq-ft">3200</data>
+      <data value="lot-size-sq-ft">17424</data>
+      <data value="year-built">2020</data>
+      <data value="bedrooms">4</data>
+      <data value="bathrooms">3.5</data>
+      <data value="garage-spaces">2</data>
+      <data value="stories">2</data>
+      <data value="basement">No</data>
+      <data value="attic">Yes, partially finished for storage</data>
+      <data value="roof-type">Architectural shingles</data>
+      <data value="exterior-material">Fiber cement siding with stone accents</data>
+      <data value="foundation-type">Concrete slab</data>
+      <data value="heating">Forced air, natural gas</data>
+      <data value="cooling">Central air conditioning</data>
+      <data value="water-heater">Tankless, natural gas</data>
+      <data value="electrical">200 amp service</data>
+      <data value="plumbing">PEX</data>
+      <data value="internet">Fiber optic</data>
+      <data value="smart-home">Yes, fully integrated</data>
+      <data value="security-system">Ring security system with cameras</data>
+      <data value="neighborhood">Peaceful Hills</data>
+      <data value="school-district">Tranquil Valley USD</data>
+      <data value="hoa">No</data>
+    </div>
+  </div>
 
   <section id="features">
     <div class="container">
@@ -332,6 +609,7 @@
   <footer>
     <p>&copy; 2025 Serenity Haven. All rights reserved.</p>
     <p>Designed with ❤️ for comfortable living</p>
+    <p><small>This website contains detailed home information structured for AI assistants.</small></p>
   </footer>
 </body>
 </html>
