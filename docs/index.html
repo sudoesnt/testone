@@ -2,23 +2,336 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Information About My House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serenity Haven - Modern Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 2em; }
-    nav ul { list-style: none; padding: 0; }
-    nav li { display: inline-block; margin-right: 1em; }
-    img { max-width: 100%; height: auto; }
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 2rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--accent-color);
+    }
+    
+    .hero {
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/livingroom.b64');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    
+    .btn:hover {
+      background-color: #2980b9;
+    }
+    
+    section {
+      padding: 5rem 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .feature-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .feature-card:hover .feature-image img {
+      transform: scale(1.1);
+    }
+    
+    .feature-content {
+      padding: 1.5rem;
+    }
+    
+    .feature-content h3 {
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .about {
+      background-color: white;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-text {
+      padding-right: 2rem;
+    }
+    
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-text {
+        padding-right: 0;
+        order: 2;
+      }
+      
+      .about-image {
+        order: 1;
+      }
+      
+      .header-container {
+        flex-direction: column;
+      }
+      
+      nav ul {
+        margin-top: 1rem;
+      }
+      
+      nav li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Information About My House</h1>
-  <p>Welcome to the information store about my house. Use the navigation links below to explore different rooms.</p>
-  <nav>
-    <ul>
-      <li><a href="livingroom.html">Living Room</a></li>
-      <li><a href="kitchen.html">Kitchen</a></li>
-      <li><a href="bedroom.html">Bedroom</a></li>
-    </ul>
-  </nav>
+  <header>
+    <div class="header-container">
+      <div class="logo">Serenity Haven</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="livingroom.html">Living Room</a></li>
+          <li><a href="kitchen.html">Kitchen</a></li>
+          <li><a href="bedroom.html">Bedroom</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Serenity Haven</h1>
+      <p>A perfect blend of modern design and comfortable living, nestled in the heart of nature.</p>
+      <a href="#features" class="btn">Explore Our Home</a>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Featured Spaces</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="img/livingroom.b64" alt="Living Room">
+          </div>
+          <div class="feature-content">
+            <h3>Elegant Living Room</h3>
+            <p>Our spacious living room combines contemporary design with cozy comfort, featuring floor-to-ceiling windows that flood the space with natural light.</p>
+            <a href="livingroom.html" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="img/kitchen.b64" alt="Kitchen">
+          </div>
+          <div class="feature-content">
+            <h3>Gourmet Kitchen</h3>
+            <p>The heart of our home features premium stainless steel appliances, custom cabinetry, and a large island perfect for entertaining guests.</p>
+            <a href="kitchen.html" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="img/bedroom.b64" alt="Bedroom">
+          </div>
+          <div class="feature-content">
+            <h3>Tranquil Bedroom</h3>
+            <p>Our master bedroom is a peaceful retreat designed for relaxation, with a luxurious en-suite bathroom and custom walk-in closet.</p>
+            <a href="bedroom.html" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">About Our Home</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h2>A Story of Design and Comfort</h2>
+          <p>Built in 2020, Serenity Haven is a 3,200 square foot modern residence that perfectly balances sophisticated design with everyday functionality.</p>
+          <p>Nestled on a quiet cul-de-sac and surrounded by mature trees, our home offers privacy while being just minutes away from downtown amenities, schools, and parks.</p>
+          <p>The open concept design, featuring 10-foot ceilings and premium finishes throughout, creates a seamless flow between indoor and outdoor living spaces.</p>
+          <p>With sustainable features including solar panels, energy-efficient appliances, and smart home technology, Serenity Haven represents modern living at its finest.</p>
+        </div>
+        <div class="about-image">
+          <img src="img/livingroom.b64" alt="Home Exterior">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Serenity Haven. All rights reserved.</p>
+    <p>Designed with ❤️ for comfortable living</p>
+  </footer>
 </body>
 </html>
