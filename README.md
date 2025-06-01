@@ -13,6 +13,9 @@ A project focused on practicing and demonstrating software testing concepts.
 ## Overview
 Briefly describe the purpose of the project and what problems it solves.
 
+## Website
+Static pages describing "Information About My House" are located in the `docs` folder. Open `index.html` in your browser to explore the rooms.
+
 ## Getting Started
 Explain how to set up the environment or application. Include prerequisites and installation steps.
 
