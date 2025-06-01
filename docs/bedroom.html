@@ -3,14 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <title>Bedroom</title>
+  <style>
+    /* Login Overlay Styles */
+    .login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    
+    .login-form {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    .login-form h2 {
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .login-btn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .login-btn:hover {
+      background-color: #2980b9;
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
+  <!-- Login Overlay -->
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-form">
+      <h2>Serenity Haven Access</h2>
+      <p>Please sign in to view this exclusive property</p>
+      <div id="errorMsg" class="error-message"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="login-btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Page Content -->
   <h1>Bedroom</h1>
   <p>The bedroom is a cozy place to rest, featuring a comfortable bed and a nightstand.</p>
   <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdo
 dD0iMTUwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgZmlsbD0ibGlnaHRncmF5Ii8+
 PHRleHQgeD0iMTAwIiB5PSI3NSIgZm9udC1zaXplPSIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIg
 ZmlsbD0iYmxhY2siPkJlZHJvb208L3RleHQ+PC9zdmc+Cg==" alt="Bedroom">
-  <p><a href="index.html">Back to Home</a></p>
+  <p><a href="index.html">Back to Home</a> | <a href="#" id="logoutBtn" style="display: none;">Logout</a></p>
+  
+  <!-- Authentication Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginOverlay = document.getElementById('loginOverlay');
+      const loginForm = document.getElementById('loginForm');
+      const errorMsg = document.getElementById('errorMsg');
+      const logoutBtn = document.getElementById('logoutBtn');
+      
+      // Hardcoded credentials (in a real app, this would be server-side)
+      const validCredentials = {
+        username: 'admin',
+        password: 'password123'
+      };
+      
+      // Check if user is already logged in
+      function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn === 'true') {
+          loginOverlay.style.display = 'none';
+          logoutBtn.style.display = 'inline';
+        }
+      }
+      
+      // Handle login form submission
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (username === validCredentials.username && password === validCredentials.password) {
+          // Successful login
+          localStorage.setItem('isLoggedIn', 'true');
+          loginOverlay.style.display = 'none';
+          logoutBtn.style.display = 'inline';
+          errorMsg.textContent = '';
+        } else {
+          // Failed login
+          errorMsg.textContent = 'Invalid username or password. Please try again.';
+        }
+      });
+      
+      // Handle logout
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        loginOverlay.style.display = 'flex';
+        logoutBtn.style.display = 'none';
+      });
+      
+      // Check login status on page load
+      checkLoginStatus();
+    });
+  </script>
 </body>
 </html>
